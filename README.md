@@ -63,6 +63,7 @@ Ctrl + E	Open the source .fish file in your editor
 Ctrl + H	Toggle app-specific help in the preview window
 Ctrl + A	Launch with custom arguments
 Ctrl + /	Show the Launcher help menu
+
 📝 How it Works
 
 The script parses your ~/.config/fish/functions directory. For the Update Tracker to work, it looks for specific metadata within your fish files:
