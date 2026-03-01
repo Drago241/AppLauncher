@@ -1,0 +1,5 @@
+function <your app name> --description "<A brief summary of what this app does>"
+# --version "<version number>"
+    "<path to file>" $argv
+    # --link "<preferably to a github repo>"
+end
