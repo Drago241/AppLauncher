@@ -1,6 +1,8 @@
 🚀 AppLauncher.sh
 
 A high-performance, feature-rich TUI Application Launcher written in Bash, specifically designed for users of the Fish Shell. It serves as a centralized hub for managing AppImages, Scripts, and Linux Binaries with built-in update tracking, categorization, and fuzzy-finding.
+
+
 ✨ Features
 
     🗂️ Smart Categorization: Automatically groups your tools into categories (Media, Emulation, Dev Tools, etc.) and types (AppImages, Scripts, Binaries).
@@ -15,6 +17,7 @@ A high-performance, feature-rich TUI Application Launcher written in Bash, speci
 
     🎨 Dynamic UI: Features a tabbed interface, progress bars for scans, and a clean, color-coded layout using tput.
 
+
 🛠️ Prerequisites
 
 To enjoy the full experience, ensure you have the following installed:
@@ -28,6 +31,7 @@ To enjoy the full experience, ensure you have the following installed:
     curl: For fetching update data.
 
     Nemo: (Default GUI Editor) Or modify the GUI_EDITOR variable in the script to your preference (e.g., code, nvim).
+
 
 🚀 Installation
 
@@ -53,16 +57,19 @@ To enjoy the full experience, ensure you have the following installed:
     GitHub Token (Optional):
     For frequent update checking, replace the GITHUB_TOKEN variable with your own Personal Access Token to avoid API rate limiting.
 
+
 ⌨️ Keybindings
-Key	Action
-Enter	Launch selected application
-Left / Right	Switch Tabs (All / Recent / Favorites / Updates)
-Tab	Contextual Action (Filter categories / Toggle Recent mode / Scan updates)
-Ctrl + F	Toggle Favorite (★)
-Ctrl + E	Open the source .fish file in your editor
-Ctrl + H	Toggle app-specific help in the preview window
-Ctrl + A	Launch with custom arguments
-Ctrl + /	Show the Launcher help menu
+
+Key,Action
+Enter,Launch selected application
+Left / Right,Switch Tabs (All / Recent / Favorites / Updates)
+Tab,Contextual Action (Filter categories / Toggle Recent mode / Scan updates)
+Ctrl + F,Toggle Favorite (★)
+Ctrl + E,Open the source .fish file in your editor
+Ctrl + H,Toggle app-specific help in the preview window
+Ctrl + A,Launch with custom arguments
+Ctrl + /,Show the Launcher help menu
+
 
 📝 How it Works
 
