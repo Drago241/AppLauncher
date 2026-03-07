@@ -4,7 +4,7 @@ FISH_FUNCTIONS_DIR="$HOME/.config/fish/functions"
 FAVORITES_FILE="$HOME/.config/fish/launcher_favorites.txt"
 HISTORY_FILE="$HOME/.config/fish/launcher_history.txt"
 UPDATE_CACHE="/tmp/launcher_update_cache"
-GITHUB_TOKEN="<...>"
+GITHUB_TOKEN=""
 
 touch "$FAVORITES_FILE" "$HISTORY_FILE"
 mkdir -p "$UPDATE_CACHE"
@@ -27,32 +27,33 @@ export FZF_DEFAULT_OPTS="
 "
 
 declare -A ALIASES=(
-    ["anydesk"]="AnyDesk" ["applauncher"]="Application Launcher (TUI)" ["appimageupdate"]="AppImageUpdater" ["boxes"]="GNOME Boxes" ["browser"]="Browser TUI" ["crt"]="Cool Retro Term" ["cull"]="Cull" ["couik"]="Couik" ["dolphin-emu"]="Dolphin Emulator" ["duckstation"]="DuckStation" ["eden"]="Eden Emulator" ["fresh"]="Fresh Editor" ["ghostty"]="Ghostty Terminal" ["kando-appimage"]="Kando" ["localsend"]="LocalSend" ["melonds"]="MelonDS" ["mgba"]="mGBA" ["onlyoffice"]="ONLYOFFICE" ["opera-browser"]="Opera Browser" ["polybar-appimage"]="Polybar" ["ppsspp"]="PPSSPP" ["ryujinx"]="Ryujinx" ["stacer"]="Stacer" ["tanuki3ds"]="Tanuki3DS" ["valvefm"]="ValveFM" ["walc"]="WALC" ["warp"]="Warp Terminal" ["waveterm"]="Wave Terminal" ["wezterm"]="WezTerm" ["wps-office"]="WPS Office" ["youtube-music"]="YouTube Music" ["zen-browser"]="Zen Browser" ["ani-cli"]="Ani CLI" ["autotile"]="AutoTile" ["bash2048"]="2048" ["bashventure"]="Bashventure" ["brogue"]="Brogue CE" ["bookokrat"]="Bookokrat" ["demitile"]="Demitile" ["minesweeper"]="Minesweeper" ["rovr"]="ROVR" ["rondo"]="Rondo" ["shtris"]="Shtris" ["snake"]="Snake (ascii)" ["snake-main"]="Snake" ["surge"]="Surge" ["termclock"]="TermClock" ["tetris"]="Tetris" ["astroterm"]="AstroTerm" ["bluetuith"]="Bluetuith" ["bt"]="Better Tree File Manager" ["carbonyl"]="Carbonyl" ["chess-tui"]="Chess TUI" ["clidle"]="Clidle (wordle)" ["clipse"]="Clipse (clipboard)" ["cloudflare-speed-cli"]="Cloudflare Speed Test CLI" ["cortile"]="Cortile" ["crunchycleaner"]="CrunchyCleaner" ["deletor"]="Deletor" ["dawn"]="Dawn" ["diskonaut"]="Diskonaut" ["dooit"]="Dooit" ["doxx"]="Doxx:Document Viewer" ["draw"]="Draw" ["dua"]="Disk Usage Analyzer (dua)" ["duf"]="Disk Usage/Free Utility (duf)" ["edex-ui"]="eDEX-UI" ["eilmeldung"]="TUI RSS Reader" ["fastfetch"]="Fastfetch" ["gambit"]="Gambit" ["gdu"]="Go Disk Usage (gdu)" ["glow"]="Glow Markdown Viewer" ["goful"]="Goful" ["gopher64"]="Gopher64" ["helm"]="Helm" ["hazelnut"]="Hazelnut" ["hazelnutd"]="Hazelnut Deamon" ["hydrotodo"]="HydroTodo" ["image2term"]="Image2Term" ["jif"]="Jif" ["jolt"]="Jolt" ["kbt"]="Keyboard Tester" ["kitty"]="Kitty Terminal" ["kitten"]="Kitten (plug-ins)" ["launchers-cinnamon"]="Launchers (Cinnamon)" ["launchers-folder"]="Launchers Folder" ["launchers-xfce"]="Launchers (XFCE)" ["mcdu"]="MCDU" ["nnn-emoji"]="nnn File Manager (emoji plugin)" ["occt"]="OCCT" ["omm"]="OMM" ["outside"]="Outside" ["pass-cli"]="Pass CLI" ["pomo"]="Pomo Timer" ["portal"]="Portal" ["pixel-index"]="Pixel Index" ["sampler"]="Sampler" ["smassh"]="Smassh" ["sonicradio"]="Sonic Radio" ["sudoku"]="Sudoku" ["spf"]="Super File Manager" ["tt"]="Task Timer" ["taskwire"]="Taskwire" ["termeverything"]="TermEverything" ["termusic"]="Termusic" ["tetro"]="Tetro" ["tetrigo"]="Tetrigo" ["termusic-server"]="Termusic Server" ["todo-linux"]="Todo Linux" ["tran"]="Tran" ["ttyper"]="TTYper" ["ttyd"]="TTYD" ["tjournal"]="TUI-Journal" ["tuime"]="Tuime" ["tuios"]="TUI OS" ["typioca"]="Typioca" ["typtea"]="Typtea" ["viu"]="VIU Media (anime)" ["weathr"]="Weather TUI" ["wifi-tui"]="WiFi TUI" ["wiki-tui"]="Wiki TUI" ["wiper"]="Wiper" ["wtfutil"]="WTF" ["xleak"]="XLeak:Sheet Viewer" ["xfce4-night-mode"]="XFCE4 Theme Switcher" ["xytz"]="XYTZ" ["xplr"]="Xplr File Manager" ["yazi"]="Yazi File Manager" ["yt-x"]="YT-X" ["youtube-tui"]="YouTube TUI" ["zellij"]="Zellij" ["zentile"]="Zentile")
+    ["anydesk"]="AnyDesk" ["applauncher"]="Application Launcher (TUI)" ["appimageupdate"]="AppImageUpdater" ["boxes"]="GNOME Boxes" ["browser"]="Browser TUI" ["crt"]="Cool Retro Term" ["cull"]="Cull" ["couik"]="Couik" ["dolphin-emu"]="Dolphin Emulator" ["duckstation"]="DuckStation" ["eden"]="Eden Emulator" ["fresh"]="Fresh Editor" ["ghostty"]="Ghostty Terminal" ["kando-appimage"]="Kando" ["localsend"]="LocalSend" ["melonds"]="MelonDS" ["mgba"]="mGBA" ["onlyoffice"]="ONLYOFFICE" ["opera-browser"]="Opera Browser" ["polybar-appimage"]="Polybar" ["ppsspp"]="PPSSPP" ["ryujinx"]="Ryujinx" ["stacer"]="Stacer" ["tanuki3ds"]="Tanuki3DS" ["valvefm"]="ValveFM" ["walc"]="WALC" ["warp"]="Warp Terminal" ["waveterm"]="Wave Terminal" ["wezterm"]="WezTerm" ["wps-office"]="WPS Office" ["youtube-music"]="YouTube Music" ["zen-browser"]="Zen Browser" ["ani-cli"]="Ani CLI" ["autotile"]="AutoTile" ["bash2048"]="2048" ["bashventure"]="Bashventure" ["brogue"]="Brogue CE" ["bookokrat"]="Bookokrat" ["demitile"]="Demitile" ["minesweeper"]="Minesweeper" ["rovr"]="ROVR" ["rondo"]="Rondo" ["shtris"]="Shtris" ["snake"]="Snake (ascii)" ["snake-main"]="Snake" ["surge"]="Surge" ["termclock"]="TermClock" ["tetris"]="Tetris" ["astroterm"]="AstroTerm" ["bluetuith"]="Bluetuith" ["bt"]="Better Tree File Manager" ["carbonyl"]="Carbonyl" ["chess-tui"]="Chess TUI" ["clidle"]="Clidle (wordle)" ["clipse"]="Clipse (clipboard)" ["cloudflare-speed-cli"]="Cloudflare Speed Test CLI" ["cortile"]="Cortile" ["crunchycleaner"]="CrunchyCleaner" ["deletor"]="Deletor" ["dawn"]="Dawn" ["diskonaut"]="Diskonaut" ["dooit"]="Dooit" ["doxx"]="Doxx:Document Viewer" ["draw"]="Draw" ["dua"]="Disk Usage Analyzer (dua)" ["duf"]="Disk Usage/Free Utility (duf)" ["edex-ui"]="eDEX-UI" ["eilmeldung"]="TUI RSS Reader" ["fastfetch"]="Fastfetch" ["gambit"]="Gambit" ["gdu"]="Go Disk Usage (gdu)" ["glow"]="Glow Markdown Viewer" ["goful"]="Goful" ["gopher64"]="Gopher64" ["helm"]="Helm" ["hazelnut"]="Hazelnut" ["hazelnutd"]="Hazelnut Deamon" ["hydrotodo"]="HydroTodo" ["image2term"]="Image2Term" ["jif"]="Jif" ["jolt"]="Jolt" ["kbt"]="Keyboard Tester" ["kitty"]="Kitty Terminal" ["kitten"]="Kitten (plug-ins)" ["launchers-cinnamon"]="Launchers (Cinnamon)" ["launchers-folder"]="Launchers Folder" ["launchers-xfce"]="Launchers (XFCE)" ["mcdu"]="MCDU" ["nnn-emoji"]="nnn File Manager (emoji plugin)" ["occt"]="OCCT" ["omm"]="OMM" ["outside"]="Outside" ["pass-cli"]="Pass CLI" ["pomo"]="Pomo Timer" ["portal"]="Portal" ["pixel-index"]="Pixel Index" ["sampler"]="Sampler" ["smassh"]="Smassh" ["sonicradio"]="Sonic Radio" ["sudoku"]="Sudoku" ["spf"]="Super File Manager" ["tt"]="Task Timer" ["taskwire"]="Taskwire" ["termeverything"]="TermEverything" ["termusic"]="Termusic" ["tetro"]="Tetro" ["tetrigo"]="Tetrigo" ["termusic-server"]="Termusic Server" ["todo-linux"]="Todo Linux" ["tran"]="Tran" ["ttyper"]="TTYper" ["ttyd"]="TTYD" ["tjournal"]="TUI-Journal" ["tuime"]="Tuime" ["tuios"]="TUI OS" ["typioca"]="Typioca" ["typtea"]="Typtea" ["viu"]="VIU Media (anime)" ["weathr"]="Weather TUI" ["wifi-tui"]="WiFi TUI" ["wiki-tui"]="Wiki TUI" ["wiper"]="Wiper" ["wtfutil"]="WTF" ["xleak"]="XLeak:Sheet Viewer" ["xfce4-night-mode"]="XFCE4 Theme Switcher" ["xytz"]="XYTZ" ["xplr"]="Xplr File Manager" ["yazi"]="Yazi File Manager" ["yt-x"]="YT-X" ["youtube-tui"]="YouTube TUI" ["zellij"]="Zellij" ["zentile"]="Zentile" ["manga-tui"]="Manga TUI" ["mayhem"]="Mayhem" ["tmlshock"]="TMLShock" ["crumbicon"]="Crumbicon" ["jiffy"]="Jiffy" ["rainbow"]="Rainbow" ["bauh"]="Baoo" ["skippy-xd"]="Skippy-XD" ["youtui-player"]="YouTUI" ["micro"]="Micro Text Editor" ["tinybar"]="Tinybar" ["pickleberry"]="Pickle Berry" ["basilk"]="Basilk" ["bit"]="Bit" ["bluetui"]="Blue TUI" ["btop"]="BTOP" ["countryfetch"]="CountryFetch" ["fish"]="Fish Shell" ["feedr"]="Feedr" ["aptui"]="APT-UI" ["klein"]="Klein")
 
-APPIMAGES=("anydesk" "appimageupdate" "boxes" "crt" "dolphin-emu" "duckstation" "eden" "ghostty" "kando-appimage" "localsend" "melonds" "mgba" "onlyoffice" "opera-browser" "polybar-appimage" "ppsspp" "ryujinx" "stacer" "tanuki3ds" "walc" "warp" "waveterm" "wezterm" "wps-office" "youtube-music" "zen-browser" "edex-ui")
-SCRIPTS=("ani-cli" "autotile" "bash2048" "bashventure" "brogue" "demitile" "minesweeper" "shtris" "snake" "snake-main" "termclock" "tetris" "image2term" "launchers-folder" "launchers-cinnamon" "launchers-xfce")
-LINUX_EXECUTABLES=("astroterm" "bluetuith" "bt" "carbonyl" "chess-tui" "clidle" "clipse" "cloudflare-speed-cli" "cortile" "crunchycleaner" "deletor" "diskonaut" "dooit" "doxx" "draw" "dua" "duf" "fastfetch" "gambit" "gdu" "glow" "goful" "gopher64" "helm" "hydrotodo" "jif" "jolt" "kbt" "nnn-emoji" "occt" "omm" "outside" "pass-cli" "pomo" "portal" "sampler" "smassh" "sonicradio" "sudoku" "spf" "tt" "taskwire" "termeverything" "termusic" "termusic-server" "todo-linux" "tran" "ttyper" "ttyd" "tjournal" "tuime" "tuios" "typioca" "typtea" "viu" "wifi-tui" "wiki-tui" "wiper" "wtfutil" "xleak" "xplr" "yazi" "youtube-tui" "zellij" "zentile" "kitty" "kitten" "eilmeldung" "weathr" "valvefm" "couik" "browser" "pixel-index" "xytz" "rovr" "tetro" "cull" "fresh" "hazelnut" "hazelnutd" "surge" "yt-x" "bookokrat" "dawn" "rondo" "xfce4-night-mode" "tetrigo" "mcdu")
+APPIMAGES=("anydesk" "appimageupdate" "boxes" "crt" "dolphin-emu" "duckstation" "eden" "ghostty" "kando-appimage" "localsend" "melonds" "mgba" "onlyoffice" "opera-browser" "polybar-appimage" "ppsspp" "ryujinx" "stacer" "tanuki3ds" "walc" "warp" "waveterm" "wezterm" "wps-office" "youtube-music" "zen-browser" "edex-ui" "bauh")
+SCRIPTS=("ani-cli" "autotile" "bash2048" "bashventure" "brogue" "demitile" "minesweeper" "shtris" "snake" "snake-main" "termclock" "tetris" "image2term" "launchers-folder" "launchers-cinnamon" "launchers-xfce" "applauncher" "pickleberry")
+LINUX_EXECUTABLES=("astroterm" "bluetuith" "bt" "carbonyl" "chess-tui" "clidle" "clipse" "cloudflare-speed-cli" "cortile" "crunchycleaner" "deletor" "diskonaut" "dooit" "doxx" "draw" "dua" "duf" "fastfetch" "gambit" "gdu" "glow" "goful" "gopher64" "helm" "hydrotodo" "jif" "jolt" "kbt" "nnn-emoji" "occt" "omm" "outside" "pass-cli" "pomo" "portal" "sampler" "smassh" "sonicradio" "sudoku" "spf" "tt" "taskwire" "termeverything" "termusic" "termusic-server" "todo-linux" "tran" "ttyper" "ttyd" "tjournal" "tuime" "tuios" "typioca" "typtea" "viu" "wifi-tui" "wiki-tui" "wiper" "wtfutil" "xleak" "xplr" "yazi" "youtube-tui" "zellij" "zentile" "kitty" "kitten" "eilmeldung" "weathr" "valvefm" "couik" "browser" "pixel-index" "xytz" "rovr" "tetro" "cull" "fresh" "hazelnut" "hazelnutd" "surge" "yt-x" "bookokrat" "dawn" "rondo" "xfce4-night-mode" "tetrigo" "mcdu" "manga-tui" "mayhem" "tmlshock" "crumbicon" "jiffy" "rainbow" "skippy-xd" "youtui-player" "micro" "tinybar" "basilk" "bit" "bluetui" "btop" "countryfetch" "fish" "feedr" "aptui" "klein")
 
 EMULATION=("boxes" "dolphin-emu" "duckstation" "eden" "gopher64" "melonds" "mgba" "ppsspp" "ryujinx" "tanuki3ds")
 GAMES=("bash2048" "bashventure" "brogue" "chess-tui" "clidle" "gambit" "minesweeper" "shtris" "snake" "snake-main" "sudoku" "tetris" "tetro" "tetrigo")
-FILE_MANAGERS=("goful" "yazi" "nnn-emoji" "spf" "xplr" "bt" "rovr" "hazelnut" "hazelnutd" "mcdu")
+FILE_MANAGERS=("goful" "yazi" "nnn-emoji" "spf" "xplr" "bt" "rovr" "hazelnut" "hazelnutd" "mcdu" "pickleberry")
 DISKSPACE_VISUALIZERS=("dua" "duf" "diskonaut" "gdu" "cull")
 FILE_TRANSFER=("portal" "tran" "localsend")
 FILE_VIEWERS=("glow" "xleak" "doxx" "jif" "bookokrat")
-MEDIA=("carbonyl" "termeverything" "sonicradio" "termusic" "valvefm" "termusic-server" "youtube-tui" "viu" "ani-cli" "youtube-music" "browser" "pixel-index" "xytz" "yt-x")
+MEDIA=("carbonyl" "termeverything" "sonicradio" "termusic" "valvefm" "termusic-server" "youtube-tui" "viu" "ani-cli" "youtube-music" "browser" "pixel-index" "xytz" "yt-x" "manga-tui" "youtui-player")
 MULTIPLEXERS=("cortile" "tuios" "zentile" "zellij" "demitile" "autotile")
 SYSTEM_CLEANERS=("crunchycleaner" "deletor" "wiper")
-SYSTEMTOOLS_AND_INFORMATION=("fastfetch" "pass-cli" "sampler" "wifi-tui" "wtfutil" "bluetuith" "clipse" "cloudflare-speed-cli" "jolt" "kbt" "occt" "taskwire" "stacer")
-TIMERS_AND_CLOCKS=("pomo" "helm" "tuime" "termclock")
-TODO_LISTS=("omm" "hydrotodo" "dooit" "tjournal" "todo-linux" "tt" "dawn" "rondo")
+SYSTEMTOOLS_AND_INFORMATION=("fastfetch" "pass-cli" "sampler" "wifi-tui" "wtfutil" "bluetuith" "clipse" "cloudflare-speed-cli" "jolt" "kbt" "occt" "taskwire" "stacer" "bluetui" "btop")
+TIMERS_AND_CLOCKS=("pomo" "helm" "tuime" "termclock" "tmlshock")
+TODO_LISTS=("omm" "hydrotodo" "dooit" "tjournal" "todo-linux" "tt" "dawn" "rondo" "mayhem" "basilk")
 TYPINGSPEED_TESTS=("typtea" "smassh" "ttyper" "typioca" "couik")
 TERMINALS=("crt" "ghostty" "warp" "waveterm" "wezterm" "kitty" "edex-ui")
 WEB_BROWSERS=("opera-browser" "zen-browser")
 OFFICE_SUITES=("onlyoffice" "wps-office")
-LAUNCHERS=("" "" "" "")
-MISCELLANEOUS=("anydesk" "appimageupdate" "kando-appimage" "polybar-appimage" "walc" "draw" "astroterm" "wiki-tui" "ttyd" "kitten" "image2term" "launchers-folder" "launchers-cinnamon" "launchers-xfce" "eilmeldung" "weathr" "outside" "fresh" "surge" "xfce4-night-mode")
+LAUNCHERS=("launchers-folder" "launchers-cinnamon" "launchers-xfce" "bauh" "applauncher" "jiffy")
+TEXT_EDITORS=("klein" "micro" "fresh")
+MISCELLANEOUS=("anydesk" "appimageupdate" "kando-appimage" "polybar-appimage" "walc" "draw" "astroterm" "wiki-tui" "ttyd" "kitten" "image2term" "eilmeldung" "weathr" "outside" "surge" "xfce4-night-mode" "crumbicon" "rainbow" "skippy-xd" "tinybar" "bit" "countryfetch" "fish" "feedr" "aptui")
 
-ARRAY_DEFS=$(declare -p APPIMAGES SCRIPTS LINUX_EXECUTABLES EMULATION GAMES FILE_MANAGERS DISKSPACE_VISUALIZERS FILE_TRANSFER FILE_VIEWERS MEDIA MULTIPLEXERS SYSTEM_CLEANERS SYSTEMTOOLS_AND_INFORMATION TIMERS_AND_CLOCKS TODO_LISTS TYPINGSPEED_TESTS TERMINALS WEB_BROWSERS OFFICE_SUITES MISCELLANEOUS)
+ARRAY_DEFS=$(declare -p APPIMAGES SCRIPTS LINUX_EXECUTABLES EMULATION GAMES FILE_MANAGERS DISKSPACE_VISUALIZERS FILE_TRANSFER FILE_VIEWERS MEDIA MULTIPLEXERS SYSTEM_CLEANERS SYSTEMTOOLS_AND_INFORMATION TIMERS_AND_CLOCKS TODO_LISTS TYPINGSPEED_TESTS TERMINALS WEB_BROWSERS OFFICE_SUITES LAUNCHERS TEXT_EDITORS MISCELLANEOUS)
 
 in_group() {
     local name="$1"; shift
@@ -89,6 +90,7 @@ subcategory_of() {
     elif in_group "$name" "${WEB_BROWSERS[@]}"; then echo "Web Browsers"
     elif in_group "$name" "${OFFICE_SUITES[@]}"; then echo "Office Suites"
     elif in_group "$name" "${LAUNCHERS[@]}"; then echo "Launchers"
+    elif in_group "$name" "${TEXT_EDITORS[@]}"; then echo "Text Editors"
     else echo "General"; fi
 }
 
@@ -206,8 +208,8 @@ get_category_view() {
     local other_count=0
     for f in $all_files; do [[ $(category_of "$f") == "Other" ]] && ((other_count++)); done
     printf "󰗈 %-30s (%d)\n" "AppImages" "${#APPIMAGES[@]}"
-    printf "󰈙 %-30s (%d)\n" "Scripts" "${#SCRIPTS[@]}"
     printf "󰆍 %-30s (%d)\n" "Linux Executables" "${#LINUX_EXECUTABLES[@]}"
+    printf "󰈙 %-30s (%d)\n" "Scripts" "${#SCRIPTS[@]}"
     printf "󰚗 %-30s (%d)\n" "Other" "$other_count"
 }
 
@@ -219,10 +221,10 @@ get_subcategory_view() {
     local sub_cats=(
         "|Disk-Space Visualizers|DISKSPACE_VISUALIZERS" "󰘚|Emulation|EMULATION"
         "|File Managers|FILE_MANAGERS" "󰇚|File Transfer|FILE_TRANSFER"
-        "|File Viewer|FILE_VIEWERS" "󱎓|Games|GAMES" "|Media|MEDIA"
+        "|File Viewer|FILE_VIEWERS" "󱎓|Games|GAMES" "|Launchers|LAUNCHERS" "|Media|MEDIA"
         "|Miscellaneous|MISCELLANEOUS" "󰖯|Multiplexers|MULTIPLEXERS"
         "󰃢|System Cleaners|SYSTEM_CLEANERS" "󰒓|System Tools & Information|SYSTEMTOOLS_AND_INFORMATION"
-        "󰥔|Timers & Clocks|TIMERS_AND_CLOCKS" "󰏫|ToDo Lists|TODO_LISTS"
+        "󱩼|Text Editors|TEXT_EDITORS" "󰥔|Timers & Clocks|TIMERS_AND_CLOCKS" "󰏫|ToDo Lists|TODO_LISTS"
         "󰌌|Typing-Speed Tests|TYPINGSPEED_TESTS" "󰞷|Terminals|TERMINALS"
         "󰖟|Web Browsers|WEB_BROWSERS" "󰏆|Office Suites|OFFICE_SUITES"
     )
@@ -281,7 +283,6 @@ HELP_TEXT="
   ${ACCENT}Ctrl + f${RESET}        Toggle Favorite (★)
   ${ACCENT}Ctrl + e${RESET}        Edit fish function file
   ${ACCENT}Ctrl + h${RESET}        Toggle app-specific help (Preview)
-  ${ACCENT}q${RESET}               Exit help (.fish help)
   ${ACCENT}Tab on Recent${RESET}   Toggle Recent (󰄉 Apps vs 󰁫 Files)
   ${ACCENT}Tab on All${RESET}      Switch Category (All)
   ${ACCENT}Tab on Updates${RESET}  Open Update List Summary
