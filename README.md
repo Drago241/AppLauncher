@@ -1,50 +1,67 @@
----
-
 # 🚀 AppLauncher.sh
 
-A high-performance, feature-rich TUI Application Launcher written in Bash, specifically designed for users of the Fish Shell. It serves as a centralized hub for managing AppImages, Scripts, and Linux Binaries with built-in update tracking, categorization, and fuzzy-finding.
+**AppLauncher** is a high-performance, feature-rich TUI (Terminal User Interface) application manager written in Bash. Specifically optimized for the **Fish Shell**, it serves as a centralized hub for managing AppImages, scripts, and binaries with built-in update tracking, fuzzy-finding, and deep UI customization.
 
-## ✨ Features
+---
 
-* **Smart Categorization:** Automatically groups your tools into categories (Media, Emulation, Dev Tools, etc.) and types (AppImages, Scripts, Binaries).
-* **Advanced Theme Engine:** Switch between classic palettes, the sleek sage-green "mint" theme, or build your own custom UI directly in the app.
-* **Reactive & Sensor-Aware Themes:** Dynamic UI that responds in real-time to your system's battery life, CPU load, network ping latency, and time of day.
-* **"Feeling Lucky?":** Instantly randomize your interface with curated color pools, pointer icons, and separators to generate a completely unique layout.
-* **Fuzzy Search:** Powered by fzf for lightning-fast navigation, complete with customizable keybindings.
-* **Update Tracker:** Scans GitHub repositories and external links to compare local file timestamps/versions against remote releases.
-* **First-Time Setup Wizard:** Automatically bootstraps your configurations, creates necessary files, and prompts for GitHub tokens and application seeds upon first run.
-* **Integrated Help:** Press `Ctrl+H` to view the specific `-h` or `--help` documentation of any script directly within the preview window.
+## ✨ Key Features
+
+* **🗂️ Smart Categorization:** Automatically groups tools into logical categories (Media, Dev, Emulation) and types (AppImages, Binaries, Fish Scripts).
+* **🎨 Advanced Theme Engine:** * **Built-in Palettes:** Choose from popular themes like Catppuccin, Dracula, and Rose Pine.
+* **Reactive UI:** Experience themes that respond to system sensors—changing colors based on **battery life**, **CPU load**, **temperature**, and **network latency**.
+* **"Feeling Lucky?":** A randomization engine that generates unique layouts with custom pointers and separators.
+
+
+* **🔄 Integrated Update Tracker:** Scans your scripts for GitHub repository links and compares local versions against remote releases in real-time.
+* **🔍 Power Searching:** Leverages `fzf` for lightning-fast navigation with a live preview window for app metadata and notes.
+* **⚙️ Setup Wizard:** A built-in first-run configuration assistant that helps you set up paths and your GitHub API token.
+* **📖 Live Documentation:** View `-h` or `--help` output of any script directly within the preview pane with `Ctrl+H`.
+
+---
 
 ## 🛠️ Prerequisites
 
-To enjoy the full experience, ensure you have the following installed:
+Ensure the following are installed on your system:
 
-* **fzf:** The interactive fuzzy finder.
-* **fish:** The launcher is designed to execute `.fish` functions stored in your config.
-* **jq:** Required for parsing GitHub API responses during update checks.
-* **curl:** For fetching remote update data.
-* **bc:** Required for math processing in the reactive/sensor-aware themes.
-* **Nemo:** (Default GUI Editor) Or modify the `GUI_EDITOR` variable in the script to your preference (e.g., code, nvim).
+| Tool | Purpose |
+| --- | --- |
+| **`fzf`** | The core fuzzy-finding engine |
+| **`fish`** | Required to execute the backend functions |
+| **`jq`** | For parsing GitHub API data |
+| **`curl`** | For network pings and update checks |
+| **`bc`** | For calculating sensor values in reactive themes |
 
-## 🚀 Installation
+---
 
-1. **Clone the repository:**
+## 🚀 Getting Started
+
+### 1. Installation
+
+Clone the repository and make the script executable:
+
 ```bash
 git clone https://github.com/Drago241/AppLauncher.git
 cd AppLauncher
-
-```
-
-
-2. **Make it executable:**
-```bash
 chmod +x AppLauncher.sh
 
 ```
 
+### 2. Initial Setup
 
-3. **Run it!**
-The new First-Time Setup Wizard will automatically create your `~/.config/fish/launcher_data.sh` file, ask for your GitHub Personal Access Token (to avoid API rate limiting), and help you seed your first application.
+Run the script for the first time:
+
+```bash
+./AppLauncher.sh
+
+```
+
+The **First-Time Setup Wizard** will launch. It will prompt you for:
+
+* A **GitHub Personal Access Token** (to avoid API rate limiting).
+* Initial application seeds to get your categories started.
+* Default paths for your favorites and history logs.
+
+---
 
 ## ⌨️ Keybindings
 
@@ -52,27 +69,31 @@ The new First-Time Setup Wizard will automatically create your `~/.config/fish/l
 | --- | --- |
 | **Enter** | Launch selected application |
 | **Left / Right** | Switch Tabs (All / Recent / Favorites / Updates) |
-| **Tab** | Contextual Action (Filter categories / Toggle Recent mode / Scan updates) |
+| **Tab** | Filter categories / Toggle Recent mode / Scan updates |
+| **Ctrl + T** | **Open Theme Picker & Builder** |
+| **Ctrl + R** | Reset filters to "All" view |
 | **Ctrl + F** | Toggle Favorite (★) |
+| **Ctrl + N** | Add/Edit personal notes for an app |
 | **Ctrl + E** | Open the source `.fish` file in your editor |
-| **Ctrl + N** | Add or edit a personal note for the selected app |
-| **Ctrl + H** | Toggle app-specific help in the preview window |
-| **Ctrl + A** | Launch with custom arguments |
-| **Ctrl + T** | Open the Theme Picker & Builder |
-| **Ctrl + R** | Reset filters / Return to "All" view |
-| **Ctrl + B** | Toggle background color on/off |
-| **Alt + P** | Cycle preview window position (Bottom, Right, Top, Left) |
-| **Alt + I / D** | Increase (`I`) or Decrease (`D`) the preview window size |
-| **Ctrl + /** | Show the Launcher help menu |
-
-## 📝 How it Works
-
-The script relies on a dynamically generated central data file (`~/.config/fish/launcher_data.sh`) to safely manage your GitHub token, category arrays, and aliases. It parses your `~/.config/fish/functions` directory to populate the launcher.
-
-For the Update Tracker to work, it looks for specific metadata within your fish files:
-
-* `--link "URL"`: The GitHub or web link to the project.
-* `--version "1.0.0"`: The current local version.
-* `--description "..."`: Short text shown in the preview pane.
+| **Ctrl + H** | Toggle app-specific help in preview |
+| **Alt + P** | Cycle preview window position |
+| **Ctrl + /** | Show the full help menu |
 
 ---
+
+## 📝 Script Metadata
+
+To enable the **Update Tracker**, add this metadata format to the top of your Fish functions:
+
+```fish
+# --link "https://github.com/user/repo"
+# --version "1.2.0"
+# --description "A brief summary of what this app does"
+
+```
+
+## 📂 File Structure
+
+* `~/.config/fish/launcher_data.sh`: Your main configuration and category data.
+* `~/.config/fish/launcher_theme`: Stores your currently active theme.
+* `~/.config/fish/themes/`: Directory for your custom-built theme files.
