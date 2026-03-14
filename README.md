@@ -37,7 +37,7 @@ Ensure the following are installed on your system:
 
 ### 1. Installation
 
-Clone the repository and make the script executable:
+Clone the repository and make the script executable (the script itself is available in the releases section):
 
 ```bash
 git clone https://github.com/Drago241/AppLauncher.git
